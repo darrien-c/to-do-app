@@ -1,9 +1,11 @@
 //Select elements
 
-const clear = document.querySelector(".clear");
-const data  = document.getElementById("date");
-const list  =  document.getElementById("list");
-const input = document.getElementById("input");
+const clear         = document.querySelector(".clear");
+const data          = document.getElementById("date");
+const list          = document.getElementById("list");
+const input         = document.getElementById("input");
+const inputTitle    = document.getElementById("title-input");
+const titleName     = document.getElementById("title");
 
 const CHECK         = "fa-check-circle";
 const UNCHECK       = "fa-circle-thin";
@@ -16,6 +18,10 @@ date.innerHTML  = today.toLocaleString("en-CA", options);
 
 let LIST, id;
 
+function addTitle(name) {
+    const appTitle = `${name}`;
+    inputTitle.placeholder = appTitle;
+}
 
 //add to do function task = input, id = order of array, done = boolean, trash = boolean
 
@@ -47,8 +53,16 @@ function addToDo(task, id, done, trash) {
 // add item to list when user hit enter key
 document.addEventListener("keyup" , function(e) {
     if(e.key === "Enter") {
-        const task = input.value;
-        
+        const task  = input.value;
+        const title = inputTitle.value;
+
+        if(title) {
+            addTitle(title);          
+            localStorage.setItem('titleKey', title);
+        }
+
+        inputTitle.value = title;
+
         //if task input is not empty
         if(task) {
             addToDo(task, id, false, false);
@@ -112,8 +126,23 @@ list.addEventListener("click" , function(e) {
     localStorage.setItem('ToDo', JSON.stringify(LIST));
 })
 
+
 //get item from local storage
-let listArr = localStorage.getItem('ToDo');
+const storedTitle    = localStorage.getItem('titleKey');
+
+if(storedTitle) {
+    inputTitle.value = storedTitle;
+}
+
+
+let listArr     = localStorage.getItem('ToDo');
+
+function displayList(arr) {
+    arr.forEach(function(item){
+        addToDo(item.name, item.id, item.done, item.trash);
+    });
+}
+
 
 if(listArr) {
     LIST = JSON.parse(listArr);
@@ -123,12 +152,6 @@ if(listArr) {
 } else {
     LIST = [];
     id = 0;
-}
-
-function displayList(arr) {
-    arr.forEach(function(item){
-        addToDo(item.name, item.id, item.done, item.trash);
-    });
 }
 
 //clear local storage
