@@ -1,4 +1,4 @@
-# To Do App
+# To Do App :pencil2::green_book:
 List tasks with this little to-do app 
 
 ---
