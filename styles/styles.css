@@ -6,4 +6,14 @@
 .fa-check-circle {
   color: #6eb200;
 }
+
+/* .editMode {
+    background-color: red;
+    border: blue solid 2px;
+} */
+.content #list .item .text {
+  /*    background-color: transparent;
+                border: none;
+                outline:none; */
+}
 /*# sourceMappingURL=styles.css.map */
