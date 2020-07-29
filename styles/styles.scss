@@ -1,27 +1,169 @@
-.lineThrough{
-    text-decoration: line-through;
-    color : #ccc;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-.fa-check-circle{
-    color:#6eb200;
+body {    
+    /* background: linear-gradient(to top, #36d1dc, #5b86e5); */
+    background: linear-gradient(to top, #7474bf, #348ac7);
+    height: 100vh;
+    width: 100%; 
+    overflow: hidden;
 }
 
-/* .editMode {
-    background-color: red;
-    border: blue solid 2px;
-} */
+.container {     
+    width: 380px;
+    margin: 0 auto;
+    /* <a href="https://www.vecteezy.com/free-vector/mountain">Mountain Vectors by Vecteezy</a> */
+    background: linear-gradient( rgba(54, 54, 54, 0.055), rgba(0, 0, 0, 0.014) ),url('../images/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;    
+    border-radius: 5px;
 
+    .header {
+        margin-top: 100px;
+        width: 380px;
+        height: 200px;
+        position: relative;
 
-.content {
-    #list {
-        .item {     
-               
-            .text{
-             /*    background-color: transparent;
-                border: none;
-                outline:none; */
+        .clear {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 50px;
+            top: 20px;
+            color: rgba(236, 236, 236, 0.938);
+
+            span {
+                padding: 0 9px;
+            }
+        }
+
+        #title-input {         
+            cursor: pointer;   
+            position: absolute;
+            bottom: 50px;
+            outline-style: none;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-bottom: hidden;
+            height: 40px;
+            width: 350px;
+            background-color: transparent;         
+            font-size: 32px; 
+            color: white;
+            margin-left: 5px;
+            padding-left: 10px;
+
+            &::placeholder {
+                color: rgba(223, 223, 223, 0.884);
+                font-size: 32px;
+                
+            }
+
+            &:focus {
+                color: rgb(223, 223, 223);
+                height: 40px;
+                
+            }
+        }
+
+        #date {
+            position: absolute;
+            bottom: 0;
+            color: rgb(223, 223, 223);
+            margin-left: 7px;
+            padding-left: 12px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .content {
+        width: 100%;
+        height: 350px;
+        max-height: 350px;
+        background-color: rgba(236, 236, 236, 0.918);
+        margin: 0 auto;
+
+        #list {
+            list-style: none;
+ 
+            .item{
+                height: 55px;
+                display: flex;                 
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+                background-color: rgb(255, 255, 255); 
+
+                .editMode {
+                    border-top: none;
+                    border-right: none;
+                    border-left: none;
+                    border-bottom: hidden;
+                    outline-style: none; 
+                    width: 240px;
+                    height: 30px;
+                    margin-top: 15px;
+                 
+
+                    &:focus {
+                        background-color: rgba(250, 249, 249, 0.897);
+                        border-bottom: 1px solid rgb(207, 220, 248);
+                        border-radius: 5px;
+                    }                    
+                }      
+
+                i {
+                    cursor: pointer;
+                    padding: 10px 20px;
+                }
+                
+                .complete, .delete {
+                    padding-top: 20px;
+                }
+
+                .fa-check-circle{
+                    color:#6eb200;
+                }
+
+                .delete {
+                    margin-left: 30px;
+                    color: rgba(168, 168, 168, 0.897);
+                }
+            }
+        }
+    }
+
+    .add-to-do {
+        border-top: 1px solid rgb(207, 220, 248);
+        background-color: rgb(255, 255, 255); 
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+
+        .fa-plus-circle {
+            color: #348AC7;
+            margin-left: 20px;
+        }
+
+        #input {
+            border: none;
+            height: 30px;
+            padding: 10px 0;
+            margin-left: 10px;
+            
+
+            &:focus {
+                outline: none;
             }
         }
     }
 }
+
+
+.lineThrough{
+    text-decoration: line-through;
+    color : #ccc;
+    background-color: transparent;
+}
+
