@@ -1,4 +1,4 @@
-//Select elements
+//Declare elements
 
 const clear         = document.querySelector(".clear");
 const data          = document.getElementById("date");
@@ -7,12 +7,10 @@ const input         = document.getElementById("input");
 const inputTitle    = document.getElementById("title-input");
 const titleName     = document.getElementById("title");
 
-
 const CHECK         = "fa-check-circle";
 const UNCHECK       = "fa-circle-thin";
 const LINE_THROUGH  = "lineThrough";
 const editMode      = "editMode"
-
 
 const today     = new Date();
 const options   = {month:"long", day:"numeric", year:"numeric"};
@@ -28,8 +26,6 @@ function addTitle(name) {
     const appTitle = `${name}`;
     inputTitle.value = appTitle;
 }
-
-
 
 // === Add To Do function === 
 /*  task => input, 
@@ -163,9 +159,10 @@ function editTask (e) {
          if(el.key == "Enter"){
             if(itemToEdit){            
 
+                // Find the to-do task by id in the LIST array and if the id's match, then change the to-do task name to the new edit
                 LIST.find( item => item.id == itemEditId).name = itemToEdit;
-                console.log(LIST);
 
+                // Set the new to-do task
                 localStorage.setItem('ToDo', JSON.stringify(LIST));
     
             }
