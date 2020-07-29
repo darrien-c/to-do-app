@@ -1,5 +1,4 @@
-//Select elements
-
+// Decalre elements
 const clear         = document.querySelector(".clear");
 const data          = document.getElementById("date");
 const list          = document.getElementById("list");
@@ -22,13 +21,11 @@ date.innerHTML  = today.toLocaleString("en-CA", options);
 let LIST, id;
 
 
-
 // === Add title function ===
 function addTitle(name) {
     const appTitle = `${name}`;
     inputTitle.value = appTitle;
 }
-
 
 
 // === Add To Do function === 
@@ -163,9 +160,10 @@ function editTask (e) {
          if(el.key == "Enter"){
             if(itemToEdit){            
 
+                // Find the to-do task by id in LIST and if the id's match then change LIST name to the new edit
                 LIST.find( item => item.id == itemEditId).name = itemToEdit;
-                console.log(LIST);
 
+                // Set the new to-do task
                 localStorage.setItem('ToDo', JSON.stringify(LIST));
     
             }
